@@ -46,7 +46,7 @@
         const searchBox = document.querySelector(".search input");
         const searchBtn = document.querySelector(".search button");
         const weatherIcon = document.querySelector(".weather-icon");
-
+        
         async function checkWeather(city){
             const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
 
@@ -60,13 +60,14 @@
         document.querySelector(".temp_f").innerHTML = Math.round(data.current.temp_f) + "°F";
         document.querySelector(".humidity").innerHTML = data.current.humidity + "%";
         document.querySelector(".wind_mph").innerHTML = data.current.wind_mph + " mph";
+        weatherIcon.src = data.current.condition.icon;
+
 
         //Here is where I'd like to call/reference my JSON file so that whenever a new city is input into the app, the weather conditions match the city's conditions in the API and the icon changes accordingly as well. //
 
         document.querySelector(".weather").style.display = "block";
         document.querySelector(".error").style.display = "none";
            }    
-        
 
 
         }   
